@@ -1,6 +1,7 @@
 var express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const PORT = process.env.PORT || 5000
 
 //bring all routes
 const auth = require('./routes/api/auth');
@@ -35,6 +36,4 @@ app.use('/api/auth',auth);
 app.use('/api/profile',profile);
 app.use('/api/questions',question);
 
-app.listen(3000, () => {
-    console.log("Server is running")
-});
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
